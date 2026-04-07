@@ -1,0 +1,106 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Zeerostock — Inventory Search</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=Syne:wght@400;600;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <header>
+      <div class="header-inner">
+        <div class="logo">
+          <span class="logo-mark">Z</span>
+          <span class="logo-text">ZEEROSTOCK</span>
+        </div>
+        <div class="header-tag">Surplus Inventory Search</div>
+      </div>
+    </header>
+
+    <main>
+      <section class="hero">
+        <h1>Find Surplus <br /><em>Inventory</em></h1>
+        <p class="hero-sub">
+          Search across multiple suppliers. Filter by name, category, and price.
+        </p>
+      </section>
+
+      <section class="search-panel">
+        <div class="search-grid">
+          <div class="field full-width">
+            <label for="q">PRODUCT NAME</label>
+            <input
+              type="text"
+              id="q"
+              placeholder="e.g. chair, keyboard, desk…"
+              autocomplete="off"
+            />
+          </div>
+
+          <div class="field">
+            <label for="category">CATEGORY</label>
+            <select id="category">
+              <option value="">All Categories</option>
+              <option value="Furniture">Furniture</option>
+              <option value="Electronics">Electronics</option>
+              <option value="Stationery">Stationery</option>
+            </select>
+          </div>
+
+          <div class="field">
+            <label for="minPrice">MIN PRICE (₹)</label>
+            <input type="number" id="minPrice" placeholder="0" min="0" />
+          </div>
+
+          <div class="field">
+            <label for="maxPrice">MAX PRICE (₹)</label>
+            <input type="number" id="maxPrice" placeholder="9999" min="0" />
+          </div>
+        </div>
+
+        <div class="search-actions">
+          <button id="searchBtn" onclick="handleSearch()">
+            <span class="btn-icon">→</span> SEARCH INVENTORY
+          </button>
+          <button id="clearBtn" class="btn-ghost" onclick="handleClear()">
+            CLEAR
+          </button>
+        </div>
+      </section>
+
+      <section
+        class="results-section"
+        id="resultsSection"
+        style="display: none"
+      >
+        <div class="results-header">
+          <span class="results-label">RESULTS</span>
+          <span class="results-count" id="resultsCount">0 items</span>
+        </div>
+        <div id="resultsContainer"></div>
+      </section>
+
+      <div class="empty-state" id="emptyState" style="display: none">
+        <div class="empty-icon">∅</div>
+        <p>No results found.</p>
+        <span>Try adjusting your filters.</span>
+      </div>
+
+      <div class="error-state" id="errorState" style="display: none">
+        <p id="errorMsg"></p>
+      </div>
+    </main>
+
+    <footer>
+      <span>ZEEROSTOCK INVENTORY SYSTEM</span>
+      <span>PART A — Search API</span>
+    </footer>
+
+    <script src="script.js"></script>
+  </body>
+</html>
