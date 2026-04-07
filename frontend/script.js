@@ -13,7 +13,9 @@ async function handleSearch() {
   hideAll();
 
   try {
-    const res = await fetch(`/search?${params.toString()}`);
+    const res = await fetch(
+      `https://zeerostock-part-a.onrender.com/search?${params.toString()}`,
+    );
     const data = await res.json();
 
     if (!res.ok) {
