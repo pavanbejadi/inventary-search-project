@@ -1,16 +1,13 @@
 const express = require("express");
+const cors = require("cors");
 const path = require("path");
 const inventory = require("./data/inventory.json");
 
 const app = express();
 const PORT = 3000;
 
-// ADD THESE 2 LINES
-app.use((req, res, next) => {
-  res.header("Access-Control-Allow-Origin", "*");
-  res.header("Access-Control-Allow-Headers", "Content-Type");
-  next();
-});
+// CORS fix
+app.use(cors());
 
 // Serve frontend files
 app.use(express.static(path.join(__dirname, "../frontend")));
